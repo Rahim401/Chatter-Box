@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:padding="10dp"
+    tools:ignore="HardcodedText" >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search for a chatter"
+        android:textColor="#3091E6"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/ipBox"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border"
+        android:singleLine="true"
+        android:maxLength="40"
+        android:hint="Enter the Ip address"
+        android:paddingHorizontal="15dp"
+        android:textColorHint="@color/backgroundColorLight"
+        android:textSize="25sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintWidth_percent="0.75"
+        tools:ignore="Autofill,TextFields" />
+
+    <Button
+        android:id="@+id/goBtn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Go"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/backgroundColorLight"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/border"
+        android:backgroundTintMode="src_in"
+        app:layout_constraintBottom_toBottomOf="@+id/ipBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ipBox"
+        app:layout_constraintTop_toTopOf="@+id/ipBox" />
+
+    <TextView
+        android:id="@+id/how2use"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="In order to connect and start the conversation, both the device should be in a same network.\nIt could be Local network( hotspot, Wifi ) or Internet."
+        android:gravity="center"
+        android:textColor="#3091E6"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:lineSpacingExtra="-2dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ipBox" />
+
+    <TextView
+        android:id="@+id/ipv4Shower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="In order to connect through Local network you need to use ipv4 address which is "
+        android:textColor="#3091E6"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:lineSpacingExtra="-2dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/how2use" />
+
+    <TextView
+        android:id="@+id/ipv6Shower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="For connection through Internet you need to use ipv6 address which is "
+        android:textColor="#3091E6"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:lineSpacingExtra="-2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ipv4Shower" />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User name is Nothing"
+        android:textColor="#3091E6"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ipv6Shower" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
