@@ -7,6 +7,10 @@ import java.io.InputStream
 import java.io.OutputStream
 import java.lang.Error
 import java.net.*
+import javax.net.ssl.SSLServerSocket
+import javax.net.ssl.SSLServerSocketFactory
+import javax.net.ssl.SSLSocket
+import javax.net.ssl.SSLSocketFactory
 import kotlin.jvm.internal.Intrinsics
 
 
@@ -23,7 +27,7 @@ interface ConnCallback{
     fun onDisconnected()
 }
 
-class MsgBridgeTcp(val userName:String){
+class MsgBridgeTcp(private val userName:String){
     enum class State{
         Initialized,
         Connecting,
@@ -60,6 +64,11 @@ class MsgBridgeTcp(val userName:String){
         frm2Address?.hostAddress
     )
 
+    val sslFactory = SSLSocketFactory.getDefault()
+    fun createSecureSocket()  = sslFactory.createSocket()
+
+    val sslSrvFactory = SSLServerSocketFactory.getDefault()
+    fun createSecureServer(port:Int)  = sslSrvFactory.createServerSocket(port)
 
     private var isSearching = false
     fun connect(ip:String){
@@ -80,7 +89,7 @@ class MsgBridgeTcp(val userName:String){
                     outStm.putData(0,userName)
                     val inStm = tmpSk.getInputStream()
                     val (spc,name) = inStm.getData()
-                    println("$spc $name")
+
                     if(spc==1){
                         uiHand?.post { connCbl?.onConnecting(name) }
                         val (conRes,_) = inStm.getData()
